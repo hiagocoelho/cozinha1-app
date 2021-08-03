@@ -33,7 +33,7 @@
     "format": "prettier --check ./src"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": [
+    ".src/**/*.{ts,tsx}": [
       "eslint --ext .tsx --ext .ts src/ --fix"
     ],
     "./src/**": [
