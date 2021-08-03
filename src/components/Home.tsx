@@ -2,7 +2,7 @@ import React from 'react';
 import { Text } from 'react-native';
 
 const Home: React.FC = () => {
-  return <Text>Home</Text>;
+  return <Text>Homeeee</Text>;
 };
 
 export default Home;
