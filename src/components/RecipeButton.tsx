@@ -1,19 +1,20 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from 'react';
 import { TouchableHighlight, StyleSheet, View, Text, ImageBackground } from 'react-native';
 
-const RecipeButton: React.FC = () => {
+interface RecipeButtonProps {
+  title: string;
+  fileUri: string;
+}
+
+const RecipeButton: React.FC<RecipeButtonProps> = (props) => {
   return (
     <TouchableHighlight>
-      <View style={styles.container}>
-        <ImageBackground
-          style={styles.image}
-          source={{
-            uri: 'https://reactnative.dev/img/tiny_logo.png',
-          }}
-          resizeMode="cover">
-          <Text style={styles.text}>Arroz</Text>
-        </ImageBackground>
-      </View>
+      <ImageBackground source={{ uri: props.fileUri }} style={styles.container}>
+        <View style={styles.overlay}>
+          <Text style={styles.text}>{props.title}</Text>
+        </View>
+      </ImageBackground>
     </TouchableHighlight>
   );
 };
@@ -23,6 +24,23 @@ const styles = StyleSheet.create({
     height: 100,
     width: 180,
     marginBottom: 30,
+    marginHorizontal: 5,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
+  },
+  overlay: {
+    flexDirection: 'row-reverse',
+    padding: 7,
+    height: 100,
+    width: 180,
+    backgroundColor: 'rgba(0, 0, 0, .3)',
   },
   image: {
     flex: 1,
